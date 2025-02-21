@@ -24,17 +24,18 @@ pipeline {
             steps {
                 sh '''
                     #!/bin/bash
-                    python3 -m venv myenv
-                    source myenv/bin/activate
+                    python3 -m venv ${WORKSPACE}/myenv
+                    source ${WORKSPACE}/myenv/bin/activate
                 '''
             }
         }
+
         stage('Run Python Script') {
             steps {
                 sh """
                     #!/bin/bash
-                    source myenv/bin/activate
-                    python3 ./geminiApi.py ""${USER_PROMPT}""
+                    source ${WORKSPACE}/myenv/bin/activate
+                    python3 ${WORKSPACE}/geminiApi.py "${USER_PROMPT}"
                 """
             }
         }
@@ -43,7 +44,7 @@ pipeline {
             steps {
                 script {
                     // Change to the directory where the code is located
-                    dir('./') {
+                    dir("${WORKSPACE}") {
                         // Initialize and apply Terraform
                         sh """
                             terraform init
