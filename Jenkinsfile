@@ -6,7 +6,6 @@ pipeline {
 //        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcpJson') // GCP key file stored in Jenkins credentials
 //        PROJECT_ID = "${params.PROJECT_ID}" // Project ID parameter
         USER_PROMPT = "${params.USER_PROMPT}" // User prompt parameter
-//        BUCKET_NAME = "${params.BUCKET_NAME}" // GCS bucket name parameter
     }
 
     parameters {
@@ -28,11 +27,13 @@ pipeline {
                     // Change to the directory where the code is located
                     dir('./') {
                         // Install required Python package
+                        sh 'python3 -m venv myenv'
+                        sh 'source myenv/bin/activate'
                         sh 'pip install -q -U google-genai'
 
                         // Run the Python script to get Terraform code from Gemini API
                         sh """
-                            python ./geminiApi.py "${USER_PROMPT}"
+                            python3 ./geminiApi.py "${USER_PROMPT}"
                         """
 
                         // List files for debugging
