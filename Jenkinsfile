@@ -29,7 +29,7 @@ pipeline {
                         // Install required Python package
                         sh 'python3 -m venv myenv'
                         sh 'bash -c "source myenv/bin/activate"'
-                        sh 'pip install -q -U google-genai'
+                        sh 'bash -c "pip install -q -U google-genai"'
                         sh 'ls'
                         // Run the Python script to get Terraform code from Gemini API
                         sh """'bash -c "source myenv/bin/activate && python3 ./geminiApi.py "${USER_PROMPT}""'"""
