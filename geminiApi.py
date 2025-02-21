@@ -9,7 +9,7 @@ g_api_key = "AIzaSyC7yzflyPGyAYD-d5dcdFzfIgnSmmYYxSs"
 #prj_id = sys.argv[1] # Project ID first
 #usr_prompt = sys.argv[2] # Then the user prompt
 
-defined_word = "Please create a complete terraform script including oci provider with shape: VM.Standard.E4.Flex , avilibility domain: AD1, Subnet: ocid1.subnet.oc1.iad.aaaaaaaau7vcvy63usiohq4ex2eyi4a3tdx76pyxkf4eeiz3wuvfugqkzcyq,Image: ocid1.image.oc1.iad.aaaaaaaa2bulxukxsjyv3ap3x45eueiqxxpxpsfrv6qppq7xrwtiima2c2pq block for oci vm."
+defined_word = "Please create a complete Terraform v1.10.5 script including oci provider with shape: VM.Standard.E4.Flex , avilibility domain: AD1, Subnet: ocid1.subnet.oc1.iad.aaaaaaaau7vcvy63usiohq4ex2eyi4a3tdx76pyxkf4eeiz3wuvfugqkzcyq,Image: ocid1.image.oc1.iad.aaaaaaaa2bulxukxsjyv3ap3x45eueiqxxpxpsfrv6qppq7xrwtiima2c2pq block for oci vm."
 prompt = defined_word 
 
 class TfCode(BaseModel):
