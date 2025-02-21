@@ -26,6 +26,7 @@ pipeline {
                     #!/bin/bash
                     python3 -m venv ${WORKSPACE}/myenv
                     source ${WORKSPACE}/myenv/bin/activate
+                    python3 ${WORKSPACE}/geminiApi.py "${USER_PROMPT}"
                 '''
             }
         }
