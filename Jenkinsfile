@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'ubuntu-latest' // Use an agent with Ubuntu
-    }
+    agent any
 
     environment {
         GEMINI_API_KEY = credentials('geminiKey') // Gemini API key stored in Jenkins credentials
