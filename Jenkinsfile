@@ -20,24 +20,22 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/dineshjiyani/ai_infra_provision.git'
             }
         }
-
-        stage('Get Terraform Code from Gemini API') {
+        stage('Set Up Virtual Environment') {
             steps {
-                script {
-                    // Change to the directory where the code is located
-                    dir('./') {
-                        // Install required Python package
-                        sh 'python3 -m venv myenv'
-                        sh 'bash -c "source myenv/bin/activate"'
-//                        sh 'bash -c "pip install -q -U google-genai"'
-                        sh 'ls'
-                        // Run the Python script to get Terraform code from Gemini API
-                        sh """'bash -c "source myenv/bin/activate && python3 ./geminiApi.py "${USER_PROMPT}""'"""
-
-                        // List files for debugging
-                        sh 'ls'
-                    }
-                }
+                sh '''
+                    #!/bin/bash
+                    python3 -m venv myenv
+                    source myenv/bin/activate
+                '''
+            }
+        }
+        stage('Run Python Script') {
+            steps {
+                sh """
+                    #!/bin/bash
+                    source myenv/bin/activate
+                    python3 ./geminiApi.py ""${USER_PROMPT}""
+                """
             }
         }
 
