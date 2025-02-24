@@ -9,7 +9,7 @@ g_api_key = "AIzaSyC7yzflyPGyAYD-d5dcdFzfIgnSmmYYxSs"
 #prj_id = sys.argv[1] # Project ID first
 #usr_prompt = sys.argv[2] # Then the user prompt
 
-defined_word = "Please create a complete Terraform v1.10.5 script including aws provider with Subnet id: subnet-8b0c8fc7, instance type: t2.micro, AMI ID: ami-00bb6a80f01f03502"
+defined_word = "Please create a complete Terraform v1.10.5 script including aws provider with Subnet id: subnet-8b0c8fc7, instance type: t2.micro, AMI ID: ami-00bb6a80f01f03502 in region : ap-south-1"
 prompt = defined_word 
 
 class TfCode(BaseModel):
