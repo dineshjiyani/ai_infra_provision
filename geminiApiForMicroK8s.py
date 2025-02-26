@@ -9,7 +9,7 @@ g_api_key = "AIzaSyC7yzflyPGyAYD-d5dcdFzfIgnSmmYYxSs" # Replace with your actual
 usr_prompt = sys.argv[1]  # User prompt from command line
 
 # Construct the prompt for Ansible YAML generation
-defined_word = "Generate a complete Ansible YAML file to provision the following: "
+defined_word = "Generate a complete Ansible [core 2.16.3] PLAYBOOK YAML file to provision the following: "
 prompt = defined_word + usr_prompt
 
 class AnsibleYaml(BaseModel):
